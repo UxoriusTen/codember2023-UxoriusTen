@@ -13,14 +13,14 @@ function compiler(code){
 	"&" Imprime el valor numérico actual.
 	*/
 
-	for (let i = 0;i<symbols.length;i++){
-		if(symbols[i]=='#'){initVal++}
-		else if(symbols[i]=='@'){initVal--}
-		else if(symbols[i]=='*'){initVal=initVal**2}
-		else if(symbols[i]=='&'){resolve=resolve+initVal}
-	}
+	symbols.forEach(symb=>{
+		if(symb=='#'){initVal++}
+		else if(symb=='@'){initVal--}
+		else if(symb=='*'){initVal=initVal**2}
+		else if(symb=='&'){resolve=resolve+initVal}
+	})
 
-		console.log(resolve);
+	console.log(resolve);
 }
 
 async function getText(){
