@@ -1,4 +1,6 @@
 function compiler(code){
+	
+	if (!code){code=''}
 
 	let symbols = code.split('')
 	let initVal = 0
@@ -21,11 +23,13 @@ function compiler(code){
 		console.log(resolve);
 }
 
-
+async function getText(){
+	return await (await fetch('https://codember.dev/data/message_02.txt')).text()
+}
 
 async function decode(){
 	try{
-		processes = await (await fetch('https://codember.dev/data/message_02.txt')).text()
+		const processes = await getText()
 
 		compiler(processes)
 	
